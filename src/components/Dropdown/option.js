@@ -40,7 +40,7 @@ export function DropdownOption({ name, content: Content, backgroundHeight }) {
 
       registerOption(id, {
         optionDimentions,
-        optionCenterX: (optionDimentions.x + optionDimentions.width) / 2,
+        optionCenterX: optionDimentions.x + optionDimentions.width / 2,
         WrappedContent,
         backgroundHeight,
       });
@@ -48,7 +48,7 @@ export function DropdownOption({ name, content: Content, backgroundHeight }) {
     } else if (registered && optionDimentions) {
       const prop = {
         optionDimentions,
-        optionCenterX: (optionDimentions.x + optionDimentions.width) / 2,
+        optionCenterX: optionDimentions.x + optionDimentions.width / 2,
       };
       updateOptionProps(id, prop);
     }

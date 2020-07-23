@@ -46,7 +46,7 @@ export function DropdownProvider({ children }) {
   );
 
   const getOptionById = useCallback(
-    (optionId) => option.find((item) => item.id === optionId),
+    (optionId) =>option.find(item=>item.id===optionId),
     [setOption]
   );
 
