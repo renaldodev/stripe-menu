@@ -10,12 +10,7 @@ export function DropdownProvider({ children }) {
   const registerOption = useCallback(
     (
       id,
-      {
-        optionDimentions,
-        optionCenterX,
-        WrappedContent,
-        backgroundHeight,
-      }
+      { optionDimentions, optionCenterX, WrappedContent, backgroundHeight }
     ) => {
       setOption((items) => [
         ...items,
@@ -46,12 +41,13 @@ export function DropdownProvider({ children }) {
   );
 
   const getOptionById = useCallback(
-    (optionId) =>option.find(item=>item.id===optionId),
-    [setOption]
+    (optionId) => option.find((item) => item.id === optionId),
+    [option]
   );
 
   const deletOptionById = useCallback(
     (optionId) => option.filter((item) => item.id !== optionId),
+    /* eslint-disable-next-line*/
     [setOption]
   );
 

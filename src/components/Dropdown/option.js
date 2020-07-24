@@ -14,11 +14,9 @@ export function DropdownOption({ name, content: Content, backgroundHeight }) {
   const {
     registerOption,
     updateOptionProps,
-    getOptionById,
     deletOptionById,
     setTargetId,
     targetId,
-    option,
   } = useContext(Context);
 
   useEffect(() => {
@@ -62,21 +60,24 @@ export function DropdownOption({ name, content: Content, backgroundHeight }) {
     backgroundHeight,
   ]);
 
-  const handleOpen=()=>setTargetId(id)
-  const handleClose=()=>setTargetId(null )
-  const handleTouch=()=>(window.isMobile=true);
+  useEffect(() => deletOptionById(id), [id, deletOptionById]);
+  const handleOpen = () => setTargetId(id);
+  const handleClose = () => setTargetId(null);
+  const handleTouch = () => (window.isMobile = true);
 
-  const handleClick=(e)=>{
-    e.preventDefault()
+  const handleClick = (e) => {
+    e.preventDefault();
 
-    return targetId===id?handleClose():handleOpen()
-  }
+    return targetId === id ? handleClose() : handleOpen();
+  };
   return (
     <React.Fragment>
-      <motion.button ref={optionHook} className="dropdown-option"
+      <motion.button
+        ref={optionHook}
+        className="dropdown-option"
         onMouseDown={handleClick}
-        onHoverStart={()=>!window.isMobile&&handleOpen()}
-        onHoverEnd={()=>!window.isMobile&&handleClose()}
+        onHoverStart={() => !window.isMobile && handleOpen()}
+        onHoverEnd={() => !window.isMobile && handleClose()}
         onTouchStart={handleTouch}
         onFocus={handleOpen}
         onBlur={handleClose}

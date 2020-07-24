@@ -10,7 +10,8 @@ export default createGlobalStyle`
 
 html{
     min-height:100%;
-    background:#202020;
+    /* background:#202020; */
+    background:#FFF;
 }
 
 *,button,input{
